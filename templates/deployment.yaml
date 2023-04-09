@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin-{{ .Values.env }}
+  labels:
+    app: pgadmin
+    env: {{ .Values.env }}
+spec:
+{{- if eq .Values.env "production" }}
+  replicas: 2
+{{- else }}
+  replicas: 1
+{{- end }}
+  selector:
+    matchLabels:
+      app: pgadmin
+      env: {{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+        env: {{ .Values.env }}
+    spec:
+      containers:
+      - name: pgadmin
+        image: dpage/pgadmin4
+        ports:
+        - containerPort: 80
+        env:
+          - name: PGADMIN_DEFAULT_PASSWORD
+            value: secrets123
+          - name: PGADMIN_DEFAULT_EMAIL
+            value: kirill@mkdev.me
