@@ -7,7 +7,7 @@ metadata:
     env: {{ .Values.env }}
 spec:
 {{- if eq .Values.env "production" }}
-  replicas: 2
+  replicas: 1
 {{- else }}
   replicas: 1
 {{- end }}
@@ -28,6 +28,6 @@ spec:
         - containerPort: 80
         env:
           - name: PGADMIN_DEFAULT_PASSWORD
-            value: secrets123
+            value: nadav123
           - name: PGADMIN_DEFAULT_EMAIL
-            value: kirill@mkdev.me
+            value: nadav.daniel@gmail.com

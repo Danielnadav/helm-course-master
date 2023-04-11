@@ -4,5 +4,5 @@ postgresql:
     persistence:
       enabled: false
   postgresqlPassword: secrets
-  postgresqlUsername: mkdev
-  postgresqlDatabase: chlm-101
+  postgresqlUsername: nadav 
+  postgresqlDatabase: chill01
