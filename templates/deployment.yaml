@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pgadmin-{{ .Values.env }}
+  name: {{ .Values.env}}
   labels:
     app: pgadmin
     env: {{ .Values.env }}
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: pgadmin
-        image: dpage/pgadmin4
+        image: {{ .Values.app.container.image }}
         ports:
         - containerPort: 80
         env:

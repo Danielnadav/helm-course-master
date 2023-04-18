@@ -1,9 +1,12 @@
 dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 11.8.1
+  version: 12.2.7
 - name: prometheus
   repository: https://prometheus-community.github.io/helm-charts
   version: 20.2.0
-digest: sha256:964ac4cedcf0dd8ff70834a56705107a9e18bf8fc0b7fd62c61836d1b18164a8
-generated: "2023-04-11T16:02:02.332805+03:00"
+- name: kibana
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.2.18
+digest: sha256:ae839b8de65ea01c806b2c94a9c7f27f4ce8c25dd3abdbe221e81c99671475af
+generated: "2023-04-11T16:48:49.83862+03:00"
