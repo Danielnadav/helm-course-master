@@ -22,8 +22,8 @@ spec:
         env: {{ .Values.env }}
     spec:
       containers:
-      - name: pgadmin
-        image: {{ .Values.app.container.image }}
+      - name: {{ .Values.app.name }}
+        image: {{ .Values.app.image }}
         ports:
         - containerPort: 80
         env:
