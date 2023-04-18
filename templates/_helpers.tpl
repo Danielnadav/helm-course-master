@@ -1,6 +1,6 @@
 {{- define "pgadmin.labels" }}
     labels:
-        app: pagdmin-ui
-        env: {{ .Values.app.env }}
+        app: pgadmin-ui
+        env: {{ .Values.app.name }}
 {{- end }}
 
