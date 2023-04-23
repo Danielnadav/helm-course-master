@@ -2,9 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.env}}
-  # labels:
-  #   app: pgadmin
-  #   env: {{ .Values.env }}
+  labels:
+    app: pgadmin
+    env: {{ .Values.env }}
+
 spec:
 {{- if eq .Values.env "production" }}
   replicas: 1
