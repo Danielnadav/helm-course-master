@@ -6,3 +6,17 @@ postgresql:
   postgresqlPassword: secrets
   postgresqlUsername: nadav 
   postgresqlDatabase: chill01
+
+name: staging
+app:
+  replicas: 1
+  env: dev-nadav-test
+  container:
+    image: deekshithsn/ui
+  computerc:
+    limits:
+      cpu: 0.2
+      memory: 500Mi
+    requests:
+      cpu: 0.2
+      memory: 500Mi

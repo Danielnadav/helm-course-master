@@ -1,10 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pgadmin-{{ .Values.env }}
+  name: {{ .Values.env}}
   labels:
     app: pgadmin
     env: {{ .Values.env }}
+
 spec:
 {{- if eq .Values.env "production" }}
   replicas: 1
@@ -23,11 +24,8 @@ spec:
     spec:
       containers:
       - name: pgadmin
-        image: dpage/pgadmin4
+        image: {{ .Values.app.image }}
         ports:
         - containerPort: 80
         env:
-          - name: PGADMIN_DEFAULT_PASSWORD
-            value: nadav123
-          - name: PGADMIN_DEFAULT_EMAIL
-            value: nadav.daniel@gmail.com
+          {{- toYaml .Values.app.computerc | nindent 10 }}
