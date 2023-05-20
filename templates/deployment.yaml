@@ -1,31 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.env}}
-  labels:
-    app: pgadmin
-    env: {{ .Values.env }}
-
+  name: pgadmin-deployment
+{{- include "pgadmin.labels" . | nindent 2 }}
 spec:
-{{- if eq .Values.env "production" }}
   replicas: 1
-{{- else }}
-  replicas: 1
-{{- end }}
   selector:
     matchLabels:
-      app: pgadmin
-      env: {{ .Values.env }}
+      app: pgadmin-ui
+      env: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: pgadmin
-        env: {{ .Values.env }}
+        app: pgadmin-ui
+        env: {{ .Values.app.name }}
     spec:
       containers:
       - name: pgadmin
         image: {{ .Values.app.image }}
         ports:
         - containerPort: 80
-        env:
-          {{- toYaml .Values.app.computerc | nindent 10 }}
