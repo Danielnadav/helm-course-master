@@ -1,4 +1,3 @@
----
 env: staging
 
 postgresql:
@@ -6,18 +5,18 @@ postgresql:
     persistence:
       enabled: false
   postgresqlPassword: secrets
-  postgresqlUsername: nadav 
+  postgresqlUsername: nadav
   postgresqlDatabase: chill01
 
 app:
   image: "dpage/pgadmin4"
-  name: nadav-pgadmin   
+  name: nadav-pgadmin
   computerc:
     - name: PGADMIN_DEFAULT_PASSWORD
       value: nadav123
     - name: PGADMIN_DEFAULT_EMAIL
       value: nadav.daniel@gmail.com
 
-labels:
-  app: name
+pgadminLabels:
+  app: pgadmin-ui
   env: prod

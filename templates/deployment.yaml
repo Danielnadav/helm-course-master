@@ -2,21 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pgadmin-deployment
-{{- include "pgadmin.labels" . | nindent 2 }}
+  labels:
+    app: pgadmin
+    env: "{{ .Values.app.name }}"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pgadmin-ui
-      env: {{ .Values.app.name }}
+      app: pgadmin
+      env: "{{ .Values.app.name }}"
   template:
     metadata:
       labels:
-        app: pgadmin-ui
-        env: {{ .Values.app.name }}
+        app: pgadmin
+        env: "{{ .Values.app.name }}"
     spec:
       containers:
-      - name: pgadmin
-        image: {{ .Values.app.image }}
-        ports:
-        - containerPort: 80
+        - name: pgadmin
+          image: "{{ .Values.app.image }}"
+          ports:
+            - containerPort: 80
