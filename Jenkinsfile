@@ -48,10 +48,10 @@ pipeline {
                         def chartName
                         if (params.ENVIRONMENT == 'stg') {
                             valueFile = 'values.yaml'
-                            chartName = 'default-stg'
+                            chartName = 'helm-course-master-stg'
                         } else if (params.ENVIRONMENT == 'prd') {
                             valueFile = 'values.prod.yaml'
-                            chartName = 'default-prd'
+                            chartName = 'helm-course-master-prd'
                         } else {
                             error("Invalid environment selected!")
                         }
