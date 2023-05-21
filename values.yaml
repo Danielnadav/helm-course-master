@@ -1,4 +1,4 @@
-env: staging
+env: staging1
 
 postgresql:
   primary:
